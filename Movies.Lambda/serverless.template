@@ -1,0 +1,35 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "Starting template for an AWS Serverless Application.",
+  "Parameters": {
+  },
+  "Resources": {
+    "MoviesFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Movies.Lambda::Movies.Lambda.MoviesFunction::MovieFunctionHandler",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "Description": "Gets the list of movies",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ]
+      }
+    },
+    "GenreFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Movies.Lambda::Movies.Lambda.MoviesFunction::GenreFunctionHandler",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "Description": "Gets the list of Genres",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ]
+      }
+    }
+  }
+}
